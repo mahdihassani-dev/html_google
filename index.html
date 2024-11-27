@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Search</title>
+
+    <style>
+      /* Make the body a flex container */
+      body {
+        display: flex;
+        justify-content: center; /* Center horizontally */
+        align-items: center; /* Center vertically */
+        height: 100vh; /* Full viewport height */
+        position: relative; /* Needed for positioning the link */
+      }
+
+      /* Style the form to stack inputs vertically */
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center elements in the form */
+        gap: 20px; /* Add space between elements */
+      }
+
+      .google-logo {
+        width: 272px;
+      }
+
+      .round-search {
+        padding: 10px;
+        width: 500px; /* Use a percentage of the parent container's width */
+        max-width: 400px; /* Limit the maximum width */
+        min-width: 200px; /* Ensure it doesn’t shrink too much on small screens */
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 25px;
+        outline: none;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .search-btn {
+        padding: 10px 20px;
+        font-size: 14px; /* Slightly smaller font size */
+        cursor: pointer;
+        background-color: #f8f9fa; /* Light gray background */
+        border: 1px solid transparent; /* Transparent border initially */
+        border-radius: 4px; /* Rounded corners */
+        color: #202124; /* Neutral text color */
+        box-shadow: none;
+      }
+
+      .search-btn:hover {
+        background-color: #f8f9fa; /* Same background, but interactive */
+        border: 1px solid #dadce0; /* Border appears on hover */
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Gentle shadow on hover */
+      }
+
+      .links {
+        position: absolute; /* Position it relative to the body */
+        top: 20px; /* Distance from the top of the page */
+        right: 20px; /* Distance from the right of the page */
+      }
+      .txt-link {
+        font-size: 14px; /* Set the font size */
+        color: #1a73e8; /* Google blue color */
+        text-decoration: none; /* Remove underline */
+        padding: 16px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="links">
+      <a href="images.html" class="txt-link">Images</a>
+
+      <a href="advanced.html" class="txt-link">Advanced Search</a>
+    </div>
+
+    <form id="google-form" method="GET">
+      <img
+        src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
+        alt="Google Logo"
+        class="google-logo"
+      />
+      <input type="text" id="search-input" class="round-search" />
+      <div>
+        <input
+          type="submit"
+          value="Google Search"
+          class="search-btn"
+          onclick="setFormDetails('https://google.com/search', 'q')"
+        />
+        <input
+          type="submit"
+          value="I'm Feeling Lucky"
+          class="search-btn"
+          onclick="setFormDetails('https://www.google.com/doodles/search', 'q')"
+        />
+      </div>
+    </form>
+
+    <script>
+      function setFormDetails(action, name) {
+        const form = document.getElementById("google-form");
+        const input = document.getElementById("search-input");
+
+        // Update form action and input name
+        form.action = action;
+        input.name = name;
+      }
+    </script>
+  </body>
+</html>
